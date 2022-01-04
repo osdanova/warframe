@@ -4,6 +4,7 @@ import RelicList from "../data/structures/RelicList";
 import RelicListUnit from "../data/structures/RelicListUnit";
 import RelicGrid from "./RelicGrid";
 import RelicData from "./RelicData";
+import RelicFilter from "./RelicFilter";
 
 function RelicLayout(props : any)
 {
@@ -25,16 +26,19 @@ function RelicLayout(props : any)
     }
     else
     {
-        console.log('relics found! Total: ' + relicGrid.length);
         return (
-            <div className="flex h-full overflow-hidden">
-                <div className="w-2/5">
-                    <RelicData relic={selectedRelic}/>
-                </div>
-                <div className="w-3/5">
-                    <RelicGrid relicGrid={relicGrid} setSelectedRelic={setSelectedRelic}/>
+            <div className="h-full overflow-hidden">
+                <RelicFilter relicList={relicList} setRelicGrid={setRelicGrid}/>
+                <div className="flex h-full overflow-hidden">
+                    <div className="w-2/5">
+                        <RelicData relic={selectedRelic}/>
+                    </div>
+                    <div className="w-3/5">
+                        <RelicGrid relicGrid={relicGrid} setSelectedRelic={setSelectedRelic}/>
+                    </div>
                 </div>
             </div>
+            
         );
     }
 

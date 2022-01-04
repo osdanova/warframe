@@ -13,7 +13,6 @@ function RelicGrid(props : any)
     }
     else
     {
-        console.log('relics found! Total: ' + relics.length);
         return (
             <div className="h-full overflow-auto">
                 <div className="grid grid-cols-5 gap-5 p-10">
