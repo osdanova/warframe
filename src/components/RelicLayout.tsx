@@ -19,28 +19,19 @@ function RelicLayout(props : any)
         firstLoad();
     }, [])
 
-    if(relicGrid == null || relicGrid.length == 0)
-    {
-        console.log('relics not found');
-        return(<div></div>);
-    }
-    else
-    {
-        return (
-            <div className="h-full overflow-hidden">
-                <RelicFilter relicList={relicList} setRelicGrid={setRelicGrid}/>
-                <div className="flex h-full overflow-hidden">
-                    <div className="w-2/5">
-                        <RelicData relic={selectedRelic}/>
-                    </div>
-                    <div className="w-3/5">
-                        <RelicGrid relicGrid={relicGrid} setSelectedRelic={setSelectedRelic}/>
-                    </div>
+    return (
+        <div className="h-full overflow-hidden">
+            <RelicFilter relicList={relicList} setRelicGrid={setRelicGrid}/>
+            <div className="flex h-full overflow-hidden">
+                <div className="w-2/5">
+                    <RelicData relic={selectedRelic}/>
+                </div>
+                <div className="w-3/5">
+                    <RelicGrid relicGrid={relicGrid} setSelectedRelic={setSelectedRelic}/>
                 </div>
             </div>
-            
-        );
-    }
+        </div>
+    );
 
     async function firstLoad()
     {
